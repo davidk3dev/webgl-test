@@ -1,0 +1,3 @@
+<select #selectInput class="ui fluid dropdown" (change)="onValueChanged($event)">
+    <option *ngFor="let i of items" value="{{i.id}}">{{i.value}}</option>
+</select>

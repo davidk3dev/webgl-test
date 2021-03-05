@@ -1,0 +1,12 @@
+.control-container{
+    display: flex;
+}
+.control-container > .main-control{
+    width: 60px;
+    flex-grow: 1;
+    margin-right: 5px;
+}
+.control-container > .value-control{
+    width: 60px;
+    text-align: right;
+}

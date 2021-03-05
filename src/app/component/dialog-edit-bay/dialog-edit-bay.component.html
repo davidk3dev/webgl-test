@@ -1,0 +1,18 @@
+<div class="overlay" [ngClass]="{'visible': visible}">
+    <div class="dialog-window">
+        <div class="header">Edit Bay</div>
+        <div class="body">
+            <table>
+                <tr *ngFor="let bay of listBay">
+                    <td>Bay #{{bay.index}}</td>
+                    <!-- <td><input type="number" [value]="bay.value" (input)="onInputChanged($event, bay)" [min]="bayMinValue" [max]="bayMaxValue"></td> -->
+                    <td><input type="number" [(ngModel)]="bay.value" [min]="bayMinValue" [max]="bayMaxValue"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            <button (click)="onCancel()">Cancel</button>
+            <button (click)="onOK()">OK</button>
+        </div>
+    </div>
+</div>

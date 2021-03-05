@@ -1,0 +1,8 @@
+<div class='control-container'>
+    <input [disabled]="isDisabled" class='main-control' type="range" [min]="minValue" [max]="maxValue"
+      [step]="step"
+      [value]="defaultValue" (input)="onValueChanged($event)" [(ngModel)]="currentValue">
+    <input [disabled]="isDisabled" class='value-control' type="number" [min]="minValue" [max]="maxValue" [step]="step"
+      [value]="defaultValue" (input)="onValueChanged($event)" [(ngModel)]="currentValue">
+</div>
+
