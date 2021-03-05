@@ -1,0 +1,107 @@
+<div class='top-nav-bar'>
+  <div class="logo">
+    <div class="text">HOME</div>
+  </div>
+  <div class="ui small basic icon buttons top-nav-button-group">
+      <button class="ui button"><i class="file icon" ></i></button>
+    <!-- 
+    <button class="ui button"><i class="save icon"></i></button>
+    <button class="ui button"><i class="upload icon"></i></button>
+    <button class="ui button"><i class="download icon"></i></button> -->
+  </div>
+</div>
+
+<div class="left-side-bar">
+  <div class="ui styled fluid accordion">
+    <div class="title active">
+      <i class="dropdown icon"></i>
+      Existing House Detail 2
+    </div>
+    <div class="content active">
+      <table class='inputs'>
+        <tr>
+          <td> - Type:</td>
+          <td class='td-content'>
+            <dropdown-input #sltExistingType [items]="objects.existingTypeList" [selected]="0"></dropdown-input>
+          </td>
+        </tr>
+        <tr>
+          <td> - Length (L1):</td>
+          <td class='td-content'>
+            <slider-input #sldExistingLength [min]="env.existingLength.min" [max]="env.existingLength.max" step="10"
+              [default]="env.existingLength.default"></slider-input>
+          </td>
+        </tr>
+        <tr [style.display]="sltExistingType.currentValue == 0">
+          <td> - Width (W1):</td>
+          <td class='td-content'>
+            <slider-input #sldExistingWidth1 [min]="env.existingWidth.min" [max]="env.existingWidth.max" step="10"
+              [default]="env.existingWidth.default"></slider-input>
+          </td>
+        </tr>
+        <tr
+          [style.display]="sltExistingType.currentValue != 0 && sldExistingWidth1.currentValue > 0 && sldExistingLength2Visible ? '':'none'">
+          <td> - Length (L2):</td>
+          <td class='td-content'>
+            <slider-input #sldExistingLength2 [min]="env.existingLength2.min" [max]="env.existingLength2.max" step="10"
+              [default]="env.existingLength2.default"></slider-input>
+          </td>
+        </tr>
+        <tr
+          [style.display]="sltExistingType.currentValue != 0 && sldExistingLength2.currentValue > 0 && sldExistingWidth2Visible ? '':'none'">
+          <td> - Width (W2):</td>
+          <td class='td-content'>
+            <slider-input #sldExistingWidth2 [min]="env.existingWidth2.min" [max]="env.existingWidth2.max" step="10"
+              [default]="env.existingWidth2.default"></slider-input>
+          </td>
+        </tr>
+        <tr>
+          <td>Pitch:</td>
+          <td class='td-content'>
+            <dropdown-input #sltPitch [items]="objects.existingRoofPitchList" [selected]="8"></dropdown-input>
+          </td>
+        </tr>
+        <tr>
+          <td>Fascia depth:</td>
+          <td class='td-content'>
+            <slider-input #sldFasciaDepth [min]="env.fasciaDepth.min" [max]="env.fasciaDepth.max" step="10"
+              [default]="env.fasciaDepth.default"></slider-input>
+          </td>
+        </tr>
+        <tr>
+          <td>Eave Height:</td>
+          <td class='td-content'>
+            <slider-input #sldEaveHeight [min]="env.eaveHeight.min" [max]="env.eaveHeight.max" step="10"
+              [default]="env.eaveHeight.default"></slider-input>
+          </td>
+        </tr>
+        <tr>
+          <td>Eave Width:</td>
+          <td class='td-content'>
+            <slider-input #sldEaveWidth [min]="env.eaveWidth.min" [max]="env.eaveWidth.max" step="10"
+              [default]="env.eaveWidth.default"></slider-input>
+          </td>
+        </tr>
+        <tr>
+          <td>Wall Type:</td>
+          <td class='td-content'>
+            <dropdown-input #sltWallType [items]="objects.wallList" [selected]="8"></dropdown-input>
+          </td>
+        </tr>
+        <tr>
+          <td>Superior Flyover Bracket:</td>
+          <td class='td-content'>
+            <slider-input #sldFlyOverBracketHeight [min]="env.flyOverBracketHeight.min"
+              [max]="env.flyOverBracketHeight.max" step="10" [default]="env.flyOverBracketHeight.default">
+            </slider-input>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- <app-menu></app-menu> -->
+</div>
+
+<div #viewerContainer class="viewer-container">
+  <canvas #rendererCanvas id="renderCanvas"></canvas>
+</div>
